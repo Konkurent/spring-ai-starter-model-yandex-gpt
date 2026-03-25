@@ -1,0 +1,1 @@
+# spring-ai-starter-model-yandex-gpt

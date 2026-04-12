@@ -134,7 +134,7 @@
     },
     {
       "name": "spring.ai.model.chat.yandexai.options.max-tokens",
-      "type": "java.lang.Long",
+      "type": "java.lang.Integer",
       "description": "Maximum response length in tokens (if supported by the selected model)."
     },
     {
@@ -155,7 +155,8 @@
     {
       "name": "spring.ai.model.embedding.yandexai.metadata-mode",
       "type": "org.springframework.ai.document.MetadataMode",
-      "description": "How document metadata is merged into text for embed(Document); required when using embeddings."
+      "description": "How document metadata is merged into text for embed(Document). Default: EMBED (see EmbeddingsProperties).",
+      "defaultValue": "EMBED"
     },
     {
       "name": "spring.ai.model.embedding.yandexai.options.dimensions",
@@ -297,12 +298,12 @@
       "name": "spring.ai.model.embedding.yandexai.metadata-mode",
       "values": [
         {
-          "value": "NONE",
-          "description": "Metadata is not included when formatting document text for embedding."
+          "value": "EMBED",
+          "description": "Default in EmbeddingsProperties; text preparation for embedding (see Spring AI MetadataMode javadoc)."
         },
         {
-          "value": "EMBED",
-          "description": "Text preparation mode for embedding (see Spring AI 1.1.x MetadataMode javadoc)."
+          "value": "NONE",
+          "description": "Metadata is not included when formatting document text for embedding."
         },
         {
           "value": "INFERENCE",

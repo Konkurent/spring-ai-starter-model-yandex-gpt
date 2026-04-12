@@ -1,0 +1,332 @@
+{
+  "groups": [
+    {
+      "name": "spring.ai.model",
+      "type": "ru.ksoft.springaiyandexgpt.autoconfigure.properties.YandexAiProperties",
+      "sourceType": "ru.ksoft.springaiyandexgpt.autoconfigure.properties.YandexAiProperties",
+      "description": "Shared Yandex Foundation Models settings: API base URL, folder, HTTP client, and path prefix for long-running operations."
+    },
+    {
+      "name": "spring.ai.auth.yandexai",
+      "type": "ru.ksoft.springaiyandexgpt.autoconfigure.properties.AuthProperties",
+      "sourceType": "ru.ksoft.springaiyandexgpt.autoconfigure.properties.AuthProperties",
+      "description": "Yandex AI authentication: API key or IAM token (static or loaded from a file)."
+    },
+    {
+      "name": "spring.ai.model.chat.yandexai",
+      "type": "ru.ksoft.springaiyandexgpt.autoconfigure.properties.ChatProperties",
+      "sourceType": "ru.ksoft.springaiyandexgpt.autoconfigure.properties.ChatProperties",
+      "description": "Yandex AI chat model: completion model, method path, generation options, and optional dedicated HTTP client settings."
+    },
+    {
+      "name": "spring.ai.model.embedding.yandexai",
+      "type": "ru.ksoft.springaiyandexgpt.autoconfigure.properties.EmbeddingsProperties",
+      "sourceType": "ru.ksoft.springaiyandexgpt.autoconfigure.properties.EmbeddingsProperties",
+      "description": "Yandex AI embeddings: method path, document metadata mode, and vector dimension."
+    },
+    {
+      "name": "spring.ai.model.image.yandexai",
+      "type": "ru.ksoft.springaiyandexgpt.autoconfigure.properties.ImageProperties",
+      "sourceType": "ru.ksoft.springaiyandexgpt.autoconfigure.properties.ImageProperties",
+      "description": "Yandex AI image generation (async + operation polling): path, aspect ratio, MIME type."
+    }
+  ],
+  "properties": [
+    {
+      "name": "spring.ai.auth",
+      "type": "java.lang.String",
+      "description": "Spring AI authentication provider. Value \"yandexai\" registers the AuthorizationProcessor bean from the Yandex AI module."
+    },
+    {
+      "name": "spring.ai.model.chat",
+      "type": "java.lang.String",
+      "description": "Chat model implementation. Value \"yandexai\" enables YandexAiChatApi and YandexAiChatModel."
+    },
+    {
+      "name": "spring.ai.model.embedding",
+      "type": "java.lang.String",
+      "description": "Embedding model implementation. Value \"yandexai\" enables YandexAiEmbeddingApi and YandexAiEmbeddingModel."
+    },
+    {
+      "name": "spring.ai.model.image",
+      "type": "java.lang.String",
+      "description": "Image model implementation. Value \"yandexai\" enables YandexAiImageApi, OperationService, and YandexAiImageModel."
+    },
+    {
+      "name": "spring.ai.model.folder-id",
+      "type": "java.lang.String",
+      "description": "Yandex Cloud folder ID shared by all models unless overridden under chat, embedding, or image."
+    },
+    {
+      "name": "spring.ai.model.base-url",
+      "type": "java.lang.String",
+      "description": "Base HTTP URL for the LLM API (host and optional path prefix). Used for completion, embeddings, and image calls."
+    },
+    {
+      "name": "spring.ai.model.operation-path",
+      "type": "java.lang.String",
+      "description": "Path segment for OperationClient (polling long-running operations, e.g. async image). Combined with the operation id."
+    },
+    {
+      "name": "spring.ai.model.client.timeout",
+      "type": "java.time.Duration",
+      "description": "HTTP client request timeout for shared client settings (unless overridden per chat, embedding, or image)."
+    },
+    {
+      "name": "spring.ai.model.client.retry.max-attempts",
+      "type": "java.lang.Integer",
+      "description": "Maximum retry attempts (Spring Retry and Reactor) for synchronous and streaming calls."
+    },
+    {
+      "name": "spring.ai.model.client.retry.multiplier",
+      "type": "java.lang.Double",
+      "description": "Exponential backoff multiplier between attempts."
+    },
+    {
+      "name": "spring.ai.model.client.retry.min-backoff",
+      "type": "java.lang.Long",
+      "description": "Initial backoff delay between attempts (milliseconds)."
+    },
+    {
+      "name": "spring.ai.model.client.retry.max-backoff",
+      "type": "java.lang.Long",
+      "description": "Upper bound for backoff delay (milliseconds)."
+    },
+    {
+      "name": "spring.ai.auth.yandexai.api-key",
+      "type": "java.lang.String",
+      "description": "Yandex Cloud service account API key (header format as defined by ApiKeyAuthorizationProcessor)."
+    },
+    {
+      "name": "spring.ai.auth.yandexai.iam.token",
+      "type": "java.lang.String",
+      "description": "Static IAM token for Authorization: Bearer."
+    },
+    {
+      "name": "spring.ai.auth.yandexai.iam.token-file",
+      "type": "java.nio.file.Path",
+      "description": "File containing the IAM token; reloaded on refresh-interval (typical for Kubernetes / yc)."
+    },
+    {
+      "name": "spring.ai.auth.yandexai.iam.refresh-interval",
+      "type": "java.time.Duration",
+      "description": "How often to reload the token from token-file."
+    },
+    {
+      "name": "spring.ai.model.chat.yandexai.folder-id",
+      "type": "java.lang.String",
+      "description": "Yandex Cloud folder ID for chat only; falls back to spring.ai.model.folder-id when unset."
+    },
+    {
+      "name": "spring.ai.model.chat.yandexai.completion-path",
+      "type": "java.lang.String",
+      "description": "HTTP POST path for completion relative to base-url (see Foundation Models API documentation)."
+    },
+    {
+      "name": "spring.ai.model.chat.yandexai.model",
+      "type": "ru.ksoft.springaiyandexgpt.constants.CompletionModel",
+      "description": "Completion model enum value (maps to a URI like gpt://{folderId}/…)."
+    },
+    {
+      "name": "spring.ai.model.chat.yandexai.options.temperature",
+      "type": "java.lang.Float",
+      "description": "Sampling temperature."
+    },
+    {
+      "name": "spring.ai.model.chat.yandexai.options.max-tokens",
+      "type": "java.lang.Integer",
+      "description": "Maximum response length in tokens (if supported by the selected model)."
+    },
+    {
+      "name": "spring.ai.model.chat.yandexai.options.reasoning-mode",
+      "type": "ru.ksoft.springaiyandexgpt.constants.ReasoningMode",
+      "description": "Model reasoning mode (see ReasoningMode)."
+    },
+    {
+      "name": "spring.ai.model.embedding.yandexai.folder-id",
+      "type": "java.lang.String",
+      "description": "Folder for embedding model URI; falls back to spring.ai.model.folder-id when unset."
+    },
+    {
+      "name": "spring.ai.model.embedding.yandexai.embedding-path",
+      "type": "java.lang.String",
+      "description": "HTTP POST path for text embedding."
+    },
+    {
+      "name": "spring.ai.model.embedding.yandexai.metadata-mode",
+      "type": "org.springframework.ai.document.MetadataMode",
+      "description": "How document metadata is merged into text for embed(Document). Default: EMBED (see EmbeddingsProperties).",
+      "defaultValue": "EMBED"
+    },
+    {
+      "name": "spring.ai.model.embedding.yandexai.options.dimensions",
+      "type": "java.lang.Integer",
+      "description": "Embedding vector dimension (dim field in the API request body)."
+    },
+    {
+      "name": "spring.ai.model.image.yandexai.folder-id",
+      "type": "java.lang.String",
+      "description": "Folder for image model URI; falls back to spring.ai.model.folder-id when unset."
+    },
+    {
+      "name": "spring.ai.model.image.yandexai.image-path",
+      "type": "java.lang.String",
+      "description": "HTTP POST path to start asynchronous image generation."
+    },
+    {
+      "name": "spring.ai.model.image.yandexai.options.mime-type",
+      "type": "ru.ksoft.springaiyandexgpt.constants.YandexMimeTypeEnum",
+      "description": "Image response format (JPEG/PNG)."
+    },
+    {
+      "name": "spring.ai.model.image.yandexai.options.seed",
+      "type": "java.lang.Integer",
+      "description": "Generation seed (if supported by the API)."
+    },
+    {
+      "name": "spring.ai.model.image.yandexai.options.aspect-ratio.width",
+      "type": "java.lang.Integer",
+      "description": "Aspect ratio width (mapped to image options widthRatio)."
+    },
+    {
+      "name": "spring.ai.model.image.yandexai.options.aspect-ratio.height",
+      "type": "java.lang.Integer",
+      "description": "Aspect ratio height (mapped to image options heightRatio)."
+    },
+    {
+      "name": "spring.ai.model.image.yandexai.operation.client.timeout",
+      "type": "java.time.Duration",
+      "description": "Client timeout for image operations when nested operation.client is used."
+    },
+    {
+      "name": "spring.ai.model.image.yandexai.operation.client.retry.max-attempts",
+      "type": "java.lang.Integer",
+      "description": "Retry settings for the image operation client."
+    },
+    {
+      "name": "spring.ai.model.image.yandexai.operation.client.retry.multiplier",
+      "type": "java.lang.Double",
+      "description": "Backoff multiplier for the image operation client."
+    },
+    {
+      "name": "spring.ai.model.image.yandexai.operation.client.retry.min-backoff",
+      "type": "java.lang.Long",
+      "description": "Minimum backoff delay (ms) for the operation client."
+    },
+    {
+      "name": "spring.ai.model.image.yandexai.operation.client.retry.max-backoff",
+      "type": "java.lang.Long",
+      "description": "Maximum backoff delay (ms) for the operation client."
+    }
+  ],
+  "hints": [
+    {
+      "name": "spring.ai.auth",
+      "values": [
+        {
+          "value": "yandexai",
+          "description": "Yandex Cloud Foundation Models (spring-ai-yandex-gpt-autoconfigure module)."
+        }
+      ]
+    },
+    {
+      "name": "spring.ai.model.chat",
+      "values": [
+        {
+          "value": "yandexai",
+          "description": "Chat via YandexAiChatModel."
+        }
+      ]
+    },
+    {
+      "name": "spring.ai.model.embedding",
+      "values": [
+        {
+          "value": "yandexai",
+          "description": "Embeddings via YandexAiEmbeddingModel."
+        }
+      ]
+    },
+    {
+      "name": "spring.ai.model.image",
+      "values": [
+        {
+          "value": "yandexai",
+          "description": "Images via YandexAiImageModel and OperationService."
+        }
+      ]
+    },
+    {
+      "name": "spring.ai.model.chat.yandexai.model",
+      "values": [
+        {
+          "value": "ALICE_AI",
+          "description": "Alice AI LLM (aliceai-llm)."
+        },
+        {
+          "value": "YANDEX_GPT_PRO_5_1",
+          "description": "YandexGPT Pro 5.1."
+        },
+        {
+          "value": "YANDEX_GPT_PRO_5",
+          "description": "YandexGPT Pro 5."
+        },
+        {
+          "value": "YANDEX_GPT_LITE_5",
+          "description": "YandexGPT Lite 5 (default in ChatProperties)."
+        }
+      ]
+    },
+    {
+      "name": "spring.ai.model.chat.yandexai.options.reasoning-mode",
+      "values": [
+        {
+          "value": "REASONING_MODE_UNSPECIFIED",
+          "description": "Reasoning mode not explicitly set."
+        },
+        {
+          "value": "DISABLED",
+          "description": "Reasoning disabled (default in ChatProperties)."
+        },
+        {
+          "value": "ENABLED_HIDDEN",
+          "description": "Reasoning enabled; steps are not exposed to the user."
+        }
+      ]
+    },
+    {
+      "name": "spring.ai.model.embedding.yandexai.metadata-mode",
+      "values": [
+        {
+          "value": "EMBED",
+          "description": "Default in EmbeddingsProperties; text preparation for embedding (see Spring AI MetadataMode javadoc)."
+        },
+        {
+          "value": "NONE",
+          "description": "Metadata is not included when formatting document text for embedding."
+        },
+        {
+          "value": "INFERENCE",
+          "description": "Mode for inference-oriented scenarios (see Spring AI 1.1.x MetadataMode javadoc)."
+        },
+        {
+          "value": "ALL",
+          "description": "Full field set when formatting document content."
+        }
+      ]
+    },
+    {
+      "name": "spring.ai.model.image.yandexai.options.mime-type",
+      "values": [
+        {
+          "value": "IMAGE_JPEG",
+          "description": "image/jpeg."
+        },
+        {
+          "value": "IMAGE_PNG",
+          "description": "image/png."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+/Users/javaman/Work/spring-ai-starter-model-yandex-gpt/spring-ai-yandex-gpt-autoconfigure/src/main/java/ru/ksoft/springaiyandexgpt/autoconfigure/YandexAiAuthAutoConfiguration.java
+/Users/javaman/Work/spring-ai-starter-model-yandex-gpt/spring-ai-yandex-gpt-autoconfigure/src/main/java/ru/ksoft/springaiyandexgpt/autoconfigure/YandexAiAutoConfiguration.java
+/Users/javaman/Work/spring-ai-starter-model-yandex-gpt/spring-ai-yandex-gpt-autoconfigure/src/main/java/ru/ksoft/springaiyandexgpt/autoconfigure/YandexAiChatAutoConfiguration.java
+/Users/javaman/Work/spring-ai-starter-model-yandex-gpt/spring-ai-yandex-gpt-autoconfigure/src/main/java/ru/ksoft/springaiyandexgpt/autoconfigure/YandexAiEmbeddingAutoConfiguration.java
+/Users/javaman/Work/spring-ai-starter-model-yandex-gpt/spring-ai-yandex-gpt-autoconfigure/src/main/java/ru/ksoft/springaiyandexgpt/autoconfigure/YandexAiImageAutoConfiguration.java
+/Users/javaman/Work/spring-ai-starter-model-yandex-gpt/spring-ai-yandex-gpt-autoconfigure/src/main/java/ru/ksoft/springaiyandexgpt/autoconfigure/constants/SpringAiYandexGptModelProperties.java
+/Users/javaman/Work/spring-ai-starter-model-yandex-gpt/spring-ai-yandex-gpt-autoconfigure/src/main/java/ru/ksoft/springaiyandexgpt/autoconfigure/properties/AuthProperties.java
+/Users/javaman/Work/spring-ai-starter-model-yandex-gpt/spring-ai-yandex-gpt-autoconfigure/src/main/java/ru/ksoft/springaiyandexgpt/autoconfigure/properties/ChatProperties.java
+/Users/javaman/Work/spring-ai-starter-model-yandex-gpt/spring-ai-yandex-gpt-autoconfigure/src/main/java/ru/ksoft/springaiyandexgpt/autoconfigure/properties/ClientProperties.java
+/Users/javaman/Work/spring-ai-starter-model-yandex-gpt/spring-ai-yandex-gpt-autoconfigure/src/main/java/ru/ksoft/springaiyandexgpt/autoconfigure/properties/EmbeddingsProperties.java
+/Users/javaman/Work/spring-ai-starter-model-yandex-gpt/spring-ai-yandex-gpt-autoconfigure/src/main/java/ru/ksoft/springaiyandexgpt/autoconfigure/properties/ImageProperties.java
+/Users/javaman/Work/spring-ai-starter-model-yandex-gpt/spring-ai-yandex-gpt-autoconfigure/src/main/java/ru/ksoft/springaiyandexgpt/autoconfigure/properties/YandexAiProperties.java
+/Users/javaman/Work/spring-ai-starter-model-yandex-gpt/spring-ai-yandex-gpt-autoconfigure/src/main/java/ru/ksoft/springaiyandexgpt/autoconfigure/util/ClientPropertiesReducer.java
+/Users/javaman/Work/spring-ai-starter-model-yandex-gpt/spring-ai-yandex-gpt-autoconfigure/src/main/java/ru/ksoft/springaiyandexgpt/autoconfigure/util/CommonConverter.java
+/Users/javaman/Work/spring-ai-starter-model-yandex-gpt/spring-ai-yandex-gpt-autoconfigure/src/main/java/ru/ksoft/springaiyandexgpt/autoconfigure/util/FolderIdReducer.java
+/Users/javaman/Work/spring-ai-starter-model-yandex-gpt/spring-ai-yandex-gpt-autoconfigure/src/main/java/ru/ksoft/springaiyandexgpt/autoconfigure/wrappers/AuthPropertiesWrapper.java
+/Users/javaman/Work/spring-ai-starter-model-yandex-gpt/spring-ai-yandex-gpt-autoconfigure/src/main/java/ru/ksoft/springaiyandexgpt/autoconfigure/wrappers/ClientPropertiesWrapper.java

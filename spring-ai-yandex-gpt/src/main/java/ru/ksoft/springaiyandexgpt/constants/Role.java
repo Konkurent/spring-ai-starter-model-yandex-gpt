@@ -6,6 +6,10 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.util.Assert;
 
+/**
+ * Chat message roles accepted by the Yandex completion API ({@code user}, {@code assistant},
+ * {@code system}).
+ */
 @Getter
 @RequiredArgsConstructor
 public enum Role {

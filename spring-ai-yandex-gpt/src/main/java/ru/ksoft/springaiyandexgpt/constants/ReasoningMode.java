@@ -1,5 +1,8 @@
 package ru.ksoft.springaiyandexgpt.constants;
 
+/**
+ * Whether and how the model may use internal reasoning before answering (Yandex completion option).
+ */
 public enum ReasoningMode {
     /**
      * Unspecified reasoning mode

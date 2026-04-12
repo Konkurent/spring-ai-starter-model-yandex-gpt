@@ -3,8 +3,12 @@ package ru.ksoft.springaiyandexgpt.dto;
 import com.fasterxml.jackson.annotation.*;
 import ru.ksoft.springaiyandexgpt.constants.EmbeddingModel;
 
+/**
+ * Request and response DTOs for Yandex AI text embedding REST API.
+ */
 public class EmbeddingApi {
 
+    /** Request body: {@code modelUri} is derived from the model and folder id; plus text and dimension. */
     @JsonPropertyOrder(
             {
                     "modelUri",
@@ -33,6 +37,7 @@ public class EmbeddingApi {
             return model.getUri(folderId);
         }
 
+        /** Builds {@link EmbeddingRequestSpec}; model/folder fields are omitted from JSON until {@link #build()}. */
         public static class Builder {
             private EmbeddingModel model;
             private String folderId;
@@ -82,6 +87,7 @@ public class EmbeddingApi {
         }
     }
 
+    /** API response: embedding vector, token count, and model version. */
     @JsonPropertyOrder(
             {
                     "embedding",

@@ -1,5 +1,9 @@
 package ru.ksoft.springaiyandexgpt.constants;
 
+/**
+ * Status of a single completion alternative in streaming and non-streaming responses (partial, final,
+ * filtered, tool calls, etc.).
+ */
 public enum CompletionResponseStatus {
     ALTERNATIVE_STATUS_UNSPECIFIED,
     ALTERNATIVE_STATUS_PARTIAL,

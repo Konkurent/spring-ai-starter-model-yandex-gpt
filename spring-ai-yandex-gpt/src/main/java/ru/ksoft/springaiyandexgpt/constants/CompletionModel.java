@@ -5,6 +5,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.val;
 import ru.ksoft.springaiyandexgpt.dto.Model;
 
+/**
+ * Built-in Yandex chat completion model ids and human-readable descriptions.
+ * <p>
+ * {@link #getUri(String...)} builds a {@code gpt://} model URI using the folder id and model name.
+ */
 @Getter
 @RequiredArgsConstructor
 public enum CompletionModel implements Model {

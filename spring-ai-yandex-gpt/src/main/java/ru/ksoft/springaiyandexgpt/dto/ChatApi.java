@@ -3,12 +3,16 @@ package ru.ksoft.springaiyandexgpt.dto;
 import com.fasterxml.jackson.annotation.*;
 import org.springframework.ai.chat.metadata.Usage;
 import ru.ksoft.springaiyandexgpt.constants.*;
-import ru.ksoft.springaiyandexgpt.text.YandexGptChatOptions;
 
 import java.util.List;
 
+/**
+ * Yandex GPT chat completion DTOs: completion request, options, messages, and API response
+ * (alternatives, usage, JSON schema, tools).
+ */
 public class ChatApi {
 
+    /** Completion API request body: {@code modelUri}, messages, and generation options. */
     @JsonPropertyOrder(
             {
                     "modelUri",
@@ -122,6 +126,7 @@ public class ChatApi {
         }
     }
 
+    /** Generation parameters: streaming, temperature, token limit, and reasoning mode. */
     @JsonPropertyOrder(
             {
                     "stream",
@@ -137,16 +142,6 @@ public class ChatApi {
             @JsonProperty("maxTokens") Integer maxTokens,
             @JsonProperty("reasoningOptions") ReasoningOptions reasoningOptions
     ) {
-
-        public YandexGptCompletionOptions(Boolean stream, YandexGptChatOptions options) {
-            this(
-                    Boolean.TRUE.equals(stream),
-                    options.getTemperature(),
-                    options.getMaxTokens(),
-                    options.getReasoningMode() != null ? new ReasoningOptions(options.getReasoningMode()) : null
-            );
-
-        }
 
         public static Builder builder() {
             return new Builder();
@@ -211,16 +206,19 @@ public class ChatApi {
         }
     }
 
+    /** Reasoning-chain options for models that support it. */
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public record ReasoningOptions(
             ReasoningMode mode
     ) {}
 
+    /** A message in the dialog; role is defined by the implementation. */
     public interface Message {
         Role role();
 
     }
 
+    /** Text message with a role (USER, SYSTEM, etc.). */
     @JsonPropertyOrder(
             {
                     "role",
@@ -273,20 +271,24 @@ public class ChatApi {
         }
     }
 
+    /** JSON Schema wrapper for structured output. */
     public record JsonSchema(
             Object schema
     ) {}
 
+    /** Tool/function selection (reserved for future extension). */
     // Future
     public record ToolChoice (
             ToolChoiceMode mode,
             String functionName
     ) {}
 
+    /** Holds a typed result payload in a response. */
     public record ResultHolder<T>(
             T result
     ) {}
 
+    /** Completion API response: alternatives, token usage, and model version. */
     @JsonPropertyOrder(
             {
                     "alternatives",
@@ -351,6 +353,7 @@ public class ChatApi {
     }
 
 
+    /** One candidate in the list: assistant message and completion status. */
     @JsonPropertyOrder(
             {
                     "message",
@@ -363,6 +366,7 @@ public class ChatApi {
             @JsonProperty("status") CompletionResponseStatus status
     ) { }
 
+    /** Token usage in Yandex API format; maps to Spring AI {@link Usage}. */
     @JsonIgnoreProperties(ignoreUnknown = true)
     public record ContentUsage(
             @JsonProperty("inputTextTokens") String inputTextTokens,
@@ -391,6 +395,7 @@ public class ChatApi {
         }
     }
 
+    /** Breakdown of completion tokens (including reasoning). */
     @JsonIgnoreProperties(ignoreUnknown = true)
     public record CompletionTokensDetails(
             @JsonProperty("reasoningTokens") String reasoningTokens

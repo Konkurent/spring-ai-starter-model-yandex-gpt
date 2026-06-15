@@ -48,7 +48,7 @@ Import the [Spring AI BOM](https://docs.spring.io/spring-ai/reference/getting-st
 
 <dependencies>
     <dependency>
-        <groupId>ru.ksoft</groupId>
+        <groupId>ru.kechlab</groupId>
         <artifactId>spring-ai-starter-model-yandex-gpt</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </dependency>
@@ -59,7 +59,7 @@ Import the [Spring AI BOM](https://docs.spring.io/spring-ai/reference/getting-st
 
 ```kotlin
 dependencies {
-    implementation("ru.ksoft:spring-ai-starter-model-yandex-gpt:1.0.1-SNAPSHOT")
+    implementation("ru.kechlab:spring-ai-starter-model-yandex-gpt:1.0.1-SNAPSHOT")
 }
 ```
 
@@ -132,7 +132,7 @@ Registered auto-configuration classes (see `META-INF/spring/org.springframework.
 
 ### Chat model
 
-**Class:** `ru.ksoft.springaiyandexgpt.text.YandexAiChatModel`
+**Class:** `text.ru.kechlab.springaiyandexgpt.YandexAiChatModel`
 
 - Synchronous `call(Prompt)` and `stream(Prompt)`.
 - Observation provider name: `yandex_gpt`.
@@ -149,7 +149,7 @@ Generic `ChatOptions` fields such as `frequencyPenalty`, `presencePenalty`, `top
 
 ### Embedding model
 
-**Class:** `ru.ksoft.springaiyandexgpt.embeddings.YandexAiEmbeddingModel`
+**Class:** `embeddings.ru.kechlab.springaiyandexgpt.YandexAiEmbeddingModel`
 
 - Extends `AbstractEmbeddingModel` and calls the embedding HTTP API.
 
@@ -161,7 +161,7 @@ Generic `ChatOptions` fields such as `frequencyPenalty`, `presencePenalty`, `top
 
 ### Image model
 
-**Class:** `ru.ksoft.springaiyandexgpt.image.YandexAiImageModel`
+**Class:** `image.ru.kechlab.springaiyandexgpt.YandexAiImageModel`
 
 Asynchronous generation with operation polling (`OperationService`, `OperationClient`). Configure MIME type, seed, and aspect ratio under `spring.ai.model.image.yandexai.options.*`.
 
@@ -278,7 +278,7 @@ spring.ai.model.folder-id=${YANDEX_FOLDER_ID}
 
 ### Чат-модель
 
-**Класс:** `ru.ksoft.springaiyandexgpt.text.YandexAiChatModel`
+**Класс:** `text.ru.kechlab.springaiyandexgpt.YandexAiChatModel`
 
 - Синхронный `call(Prompt)` и `stream(Prompt)`.
 - Имя провайдера в наблюдаемости: `yandex_gpt`.
@@ -293,7 +293,7 @@ spring.ai.model.folder-id=${YANDEX_FOLDER_ID}
 
 ### Модель эмбеддингов
 
-**Класс:** `ru.ksoft.springaiyandexgpt.embeddings.YandexAiEmbeddingModel`
+**Класс:** `embeddings.ru.kechlab.springaiyandexgpt.YandexAiEmbeddingModel`
 
 **Параметры:** `folderId`, размерность `dimensions` (по умолчанию `256`).
 
@@ -303,7 +303,7 @@ spring.ai.model.folder-id=${YANDEX_FOLDER_ID}
 
 ### Модель изображений
 
-**Класс:** `ru.ksoft.springaiyandexgpt.image.YandexAiImageModel`
+**Класс:** `image.ru.kechlab.springaiyandexgpt.YandexAiImageModel`
 
 Асинхронная генерация с опросом операции. Настройки MIME, seed и соотношения сторон — под `spring.ai.model.image.yandexai.options.*`.
 

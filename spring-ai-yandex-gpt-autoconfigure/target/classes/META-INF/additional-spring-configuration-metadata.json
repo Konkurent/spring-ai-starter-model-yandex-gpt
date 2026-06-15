@@ -2,32 +2,32 @@
   "groups": [
     {
       "name": "spring.ai.model",
-      "type": "ru.ksoft.springaiyandexgpt.autoconfigure.properties.YandexAiProperties",
-      "sourceType": "ru.ksoft.springaiyandexgpt.autoconfigure.properties.YandexAiProperties",
+      "type": "ru.kechlab.springaiyandexgpt.autoconfigure.properties.YandexAiProperties",
+      "sourceType": "ru.kechlab.springaiyandexgpt.autoconfigure.properties.YandexAiProperties",
       "description": "Shared Yandex Foundation Models settings: API base URL, folder, HTTP client, and path prefix for long-running operations."
     },
     {
       "name": "spring.ai.auth.yandexai",
-      "type": "ru.ksoft.springaiyandexgpt.autoconfigure.properties.AuthProperties",
-      "sourceType": "ru.ksoft.springaiyandexgpt.autoconfigure.properties.AuthProperties",
+      "type": "ru.kechlab.springaiyandexgpt.autoconfigure.properties.AuthProperties",
+      "sourceType": "ru.kechlab.springaiyandexgpt.autoconfigure.properties.AuthProperties",
       "description": "Yandex AI authentication: API key or IAM token (static or loaded from a file)."
     },
     {
       "name": "spring.ai.model.chat.yandexai",
-      "type": "ru.ksoft.springaiyandexgpt.autoconfigure.properties.ChatProperties",
-      "sourceType": "ru.ksoft.springaiyandexgpt.autoconfigure.properties.ChatProperties",
+      "type": "ru.kechlab.springaiyandexgpt.autoconfigure.properties.ChatProperties",
+      "sourceType": "ru.kechlab.springaiyandexgpt.autoconfigure.properties.ChatProperties",
       "description": "Yandex AI chat model: completion model, method path, generation options, and optional dedicated HTTP client settings."
     },
     {
       "name": "spring.ai.model.embedding.yandexai",
-      "type": "ru.ksoft.springaiyandexgpt.autoconfigure.properties.EmbeddingsProperties",
-      "sourceType": "ru.ksoft.springaiyandexgpt.autoconfigure.properties.EmbeddingsProperties",
+      "type": "ru.kechlab.springaiyandexgpt.autoconfigure.properties.EmbeddingsProperties",
+      "sourceType": "ru.kechlab.springaiyandexgpt.autoconfigure.properties.EmbeddingsProperties",
       "description": "Yandex AI embeddings: method path, document metadata mode, and vector dimension."
     },
     {
       "name": "spring.ai.model.image.yandexai",
-      "type": "ru.ksoft.springaiyandexgpt.autoconfigure.properties.ImageProperties",
-      "sourceType": "ru.ksoft.springaiyandexgpt.autoconfigure.properties.ImageProperties",
+      "type": "ru.kechlab.springaiyandexgpt.autoconfigure.properties.ImageProperties",
+      "sourceType": "ru.kechlab.springaiyandexgpt.autoconfigure.properties.ImageProperties",
       "description": "Yandex AI image generation (async + operation polling): path, aspect ratio, MIME type."
     }
   ],
@@ -124,7 +124,7 @@
     },
     {
       "name": "spring.ai.model.chat.yandexai.model",
-      "type": "ru.ksoft.springaiyandexgpt.constants.CompletionModel",
+      "type": "ru.kechlab.springaiyandexgpt.constants.ChatModel",
       "description": "Completion model enum value (maps to a URI like gpt://{folderId}/…)."
     },
     {
@@ -139,7 +139,7 @@
     },
     {
       "name": "spring.ai.model.chat.yandexai.options.reasoning-mode",
-      "type": "ru.ksoft.springaiyandexgpt.constants.ReasoningMode",
+      "type": "ru.kechlab.springaiyandexgpt.constants.ReasoningMode",
       "description": "Model reasoning mode (see ReasoningMode)."
     },
     {
@@ -175,7 +175,7 @@
     },
     {
       "name": "spring.ai.model.image.yandexai.options.mime-type",
-      "type": "ru.ksoft.springaiyandexgpt.constants.YandexMimeTypeEnum",
+      "type": "ru.kechlab.springaiyandexgpt.constants.YandexMimeTypeEnum",
       "description": "Image response format (JPEG/PNG)."
     },
     {

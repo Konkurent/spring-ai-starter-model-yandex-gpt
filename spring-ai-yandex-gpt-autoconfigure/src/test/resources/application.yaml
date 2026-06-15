@@ -1,0 +1,33 @@
+spring:
+  ai:
+    auth:
+      yandexai:
+        api-key: ${YANDEX_API_KEY}
+        iam:
+          refresh-interval: 1h
+          token: ${YANDEX_IAM_TOKEN}
+          token-file: ${PATH_TO_IAM_TOKEN}
+    model:
+      chat:
+        yandexai:
+          options:
+            temperature: 0.6
+            max-tokens: 2000
+            reasoning-mode: REASONING_MODE_UNSPECIFIED
+          folder-id: ${YANDEX_FOLDER_ID_1}
+          completion-path: /foundationModels/v1/completions
+          model: YANDEX_GPT_PRO_5
+      embedding:
+        yandexai:
+          embedding-path: /foundationModels/v1/embeddings
+          metadataMode: ALL
+          options:
+            dimensions: 256
+      image:
+        yandexai:
+          options:
+            aspect-ratio:
+              width: 16
+              height: 9
+            mime-type: IMAGE_PNG
+            seed: 2

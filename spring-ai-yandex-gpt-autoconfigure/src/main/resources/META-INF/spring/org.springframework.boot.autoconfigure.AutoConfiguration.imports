@@ -14,8 +14,8 @@
 # limitations under the License.
 #
 
-ru.ksoft.springaiyandexgpt.autoconfigure.YandexAiAutoConfiguration
-ru.ksoft.springaiyandexgpt.autoconfigure.YandexAiAuthAutoConfiguration
-ru.ksoft.springaiyandexgpt.autoconfigure.YandexAiChatAutoConfiguration
-ru.ksoft.springaiyandexgpt.autoconfigure.YandexAiImageAutoConfiguration
-ru.ksoft.springaiyandexgpt.autoconfigure.YandexAiEmbeddingAutoConfiguration
+ru.kechlab.springaiyandexgpt.autoconfigure.YandexAiAutoConfiguration
+ru.kechlab.springaiyandexgpt.autoconfigure.YandexAiAuthAutoConfiguration
+ru.kechlab.springaiyandexgpt.autoconfigure.YandexAiChatAutoConfiguration
+ru.kechlab.springaiyandexgpt.autoconfigure.YandexAiImageAutoConfiguration
+ru.kechlab.springaiyandexgpt.autoconfigure.YandexAiEmbeddingAutoConfiguration

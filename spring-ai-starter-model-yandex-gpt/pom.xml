@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>ru.ksoft</groupId>
+        <groupId>ru.kechlab</groupId>
         <artifactId>spring-ai-yandex-gpt-parent</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
@@ -15,7 +15,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>ru.ksoft</groupId>
+            <groupId>ru.kechlab</groupId>
             <artifactId>spring-ai-yandex-gpt-autoconfigure</artifactId>
             <version>${project.version}</version>
         </dependency>

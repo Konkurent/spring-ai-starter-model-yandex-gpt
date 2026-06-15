@@ -16,6 +16,10 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar" />
         </processorPath>
         <module name="spring-ai-starter-model-yandex-gpt (1)" />
+        <module name="spring-ai-yandex-gpt" />
+        <module name="spring-ai-yandex-gpt-sample" />
+        <module name="spring-ai-yandex-gpt-autoconfigure" />
+        <module name="spring-ai-starter-model-yandex-gpt" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
